@@ -1,0 +1,48 @@
+@host = http://localhost:3000
+//@token = {{login.response.body.$.token}}
+
+### Update post
+PUT {{host}}/posts/2
+Content-Type: application/json
+
+{
+    "titulo": "tem que atualizar",
+    "conteudo": "no front-end",
+    "usuarioId": "2"
+}
+
+### Post usuario
+POST {{host}}/usuario
+Content-Type: application/json
+
+{
+    "nome": "pabro",
+    "email": "pabro@gmail.com",
+    "senha": "pabro123",
+}
+
+### Post quebrado
+POST {{host}}/usuario
+Content-Type: application/json
+
+{
+    "nome": "pabro",
+    "email": "pabro",
+    "senha": "pabro",
+}
+
+### Delete post
+DELETE {{host}}/posts/1
+
+### Delete usuario
+DELETE {{host}}/usuario/2
+
+### Login valido
+# @name login
+POST {{host}}/login
+Content-Type: application/json
+
+{
+    "email": "pabro@gmail.com",
+    "senha": "pabro123"
+}
